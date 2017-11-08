@@ -6,7 +6,7 @@ The easiest way to install the extension is to use [Composer](https://getcompose
 
 Run the following commands:
 
-- ```$ composer require feichen123/fei-test```
+- ```$ composer require feichen1234/fei-test```
 - ```$ bin/magento module:enable Fei_Test```
 - ```$ bin/magento setup:upgrade && bin/magento setup:static-content:deploy```
 
