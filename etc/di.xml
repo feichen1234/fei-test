@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @category Fei
+ * @package Fei_Test
+ * @author Fei Chen chenfei@hotmail.co.uk
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Fei\Test\Api\ProductInfoRepositoryInterface" type="Fei\Test\Model\ProductInfoRepository"/>
+</config>

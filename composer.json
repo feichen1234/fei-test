@@ -1,0 +1,25 @@
+{
+  "name": "feichen123/fei-test",
+  "description": "Test Module for Whitbread",
+  "authors": [
+    {
+      "name": "Fei Chen",
+      "email": "chenfei@hotmail.co.uk"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "magento/module-theme": "100.1.*",
+    "magento/module-backend": "100.1.*",
+    "magento/framework": "100.1.*",
+    "magento/module-ui": "100.1.*"
+  },
+  "type": "magento2-module",
+  "license": ["private"],
+  "autoload": {
+    "files": ["registration.php"],
+    "psr-4": {
+      "Fei\\Test\\": ""
+    }
+  }
+}

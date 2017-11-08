@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @category Fei
+ * @package Fei_Test
+ * @author Fei Chen chenfei@hotmail.co.uk
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route method="GET" url="/V1/fei-test/get-product-info/:sku">
+        <service class="Fei\Test\Api\ProductInfoRepositoryInterface" method="getProductInfoWithChildSku"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
