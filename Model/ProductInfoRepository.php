@@ -11,6 +11,7 @@ use Fei\Test\Api\ProductInfoRepositoryInterface as ProductInfoRepositoryInterfac
 use Magento\Catalog\Api\ProductRepositoryInterface as ProductRepositoryInterface;
 use Magento\ConfigurableProduct\Model\Product\Type\Configurable as Configurable;
 use Magento\Framework\Exception\NoSuchEntityException as NoSuchEntityException;
+
 /**
  * Class ProductInfoRepository
  * @package Fei\Test\Model
@@ -46,7 +47,7 @@ class ProductInfoRepository implements ProductInfoRepositoryInterface
             $result[] = ['product_info' => $productInfo];
             if ($productObj->getTypeId() == Configurable::TYPE_CODE) {
                 $result[] = ['product_option' => $this->getConfigurableOptions($productObj)];
-            }else{
+            } else {
                 $result[] = ['error' => 'Product with sku ' . $sku . ' does not contain any options.'];
             }
 
@@ -59,17 +60,20 @@ class ProductInfoRepository implements ProductInfoRepositoryInterface
     /**
      * get available product options
      * @param $product
-     * @return array
+     * @return bool|array
      */
     protected function getConfigurableOptions($product)
     {
         $optionValues = [];
         $attributes = $product->getTypeInstance()->getConfigurableOptions($product);
-        foreach($attributes as $options) {
-            foreach($options as $option){
-                array_push($optionValues,['sku' => $option['sku'],
-                                          'option' => $option['attribute_code'],
-                                          'value' => $option['option_title']] );
+        if (count($attributes) > 0) {
+            return false;
+        }
+        foreach ($attributes as $options) {
+            foreach ($options as $option) {
+                array_push($optionValues, ['sku' => $option['sku'],
+                    'option' => $option['attribute_code'],
+                    'value' => $option['option_title']]);
             }
         }
         return $optionValues;
