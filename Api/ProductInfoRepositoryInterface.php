@@ -15,6 +15,7 @@ interface ProductInfoRepositoryInterface
 {
     /**
      * get product information include child sku
+     * @api
      * @param string sku
      * @return mixed
      */
